@@ -1,0 +1,288 @@
+/*
+ * Nostalji Merkezi - Frutiger Aero Tema CSS
+ * Tüm sayfalar için tek bir stil dosyası
+ */
+
+/* GENEL STİLLER */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* GRADYANLI ARKA PLAN: Açık Turkuazdan Açık Yeşile yumuşak geçiş */
+    background: linear-gradient(to bottom right, #a0e6ff, #5cd1a0); 
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    
+    /* KAYMA SORUNUNU ÇÖZEN KOD: Sayfanın yatayda taşmasını engeller */
+    overflow-x: hidden; 
+}
+
+/* ANA KAPSAYICI (Tüm İçeriği Sarar) */
+.wrapper {
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* Yine de bir güvenlik önlemi: Kapsayıcının kendisi de taşmasın */
+    box-sizing: border-box; 
+}
+
+/* ÜST BAŞLIK ALANI */
+.site-header {
+    color: white;
+    padding-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.site-header h1 { margin: 0; font-size: 2.5em; }
+.site-header p { margin: 5px 0 0 0; font-size: 1.1em; opacity: 0.9; }
+
+/* NAVİGASYON (MENÜ) */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: none;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    margin-top: 10px;
+    /* Yatay kaydırmayı etkinleştirelim ki, mobil görünümde taşma olmasın */
+    overflow-x: auto; 
+    white-space: nowrap; 
+}
+.navbar a {
+    padding: 10px 15px;
+    display: block;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.navbar a:hover { background-color: rgba(0, 0, 0, 0.1); color: #0078d4; }
+.navbar a:first-child { background-color: rgba(173, 216, 230, 0.8); }
+
+/* İÇERİK VE KENAR ÇUBUĞU KAPSAYICISI */
+.content-and-sidebar-container {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* KENAR ÇUBUĞU GİZLİ */
+.sidebar {
+    width: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    display: none; 
+}
+
+/* İÇERİK ALANI (Makaleler) - TAM GENİŞLİK */
+.content-area {
+    flex: 4; 
+    width: 100%; 
+    background-color: rgba(173, 216, 230, 0.8); 
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    min-height: 400px;
+    box-sizing: border-box; /* İç padding genişliğe dahil olsun */
+}
+
+/* YAZI STİLLERİ */
+.post {
+    margin-bottom: 30px; 
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.post h2 {
+    color: #0078d4;
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+/* FOOTER */
+.site-footer {
+    width: 90%;
+    max-width: 1000px;
+    text-align: left;
+    color: white;
+    font-size: 0.9em;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 20px;
+}
+
+/* Duyarlı Tasarım */
+@media (max-width: 768px) {
+    .content-and-sidebar-container { flex-direction: column; }
+    .navbar { flex-wrap: wrap; }
+    .navbar a { 
+        /* Mobil görünümde menü butonlarını alt alta sıralayalım */
+        border-right: none !important; 
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        width: 100%; 
+        box-sizing: border-box;
+    }
+    .wrapper { overflow-x: hidden; }
+}
+
+
+/* -- SAYFAYA ÖZEL STİLLER -- */
+
+/* SOSYAL MEDYA SAYFASI EK STİLLERİ */
+.social-buttons {
+    display: flex;
+    flex-direction: column; /* Alt alta sıralayalım */
+    gap: 15px;
+    margin-top: 30px;
+}
+.social-buttons a {
+    padding: 15px 25px;
+    background-color: rgba(255, 255, 255, 0.8); /* Daha şeffaf arka plan */
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    /* Cam/parlak efekt */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), inset 0 0 8px rgba(255, 255, 255, 0.8); 
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.social-buttons a:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* UYGULAMA LİSTESİ STİLLERİ */
+.app-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.app-item:last-child {
+    border-bottom: none;
+}
+.app-title {
+    font-weight: bold;
+    color: #0078d4;
+    font-size: 1.1em;
+}
+.download-link {
+    padding: 8px 15px;
+    background: linear-gradient(145deg, #5cd1a0, #36a46e); /* Yeşil Gradient */
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+.download-link:hover {
+    background: linear-gradient(145deg, #36a46e, #2a8055);
+}
+
+/* GİRİŞ VE KAYIT STİLLERİ */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.auth-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.auth-box h2 {
+    color: #0078d4;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(0, 120, 212, 0.3);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #0078d4;
+    box-shadow: 0 0 5px rgba(0, 120, 212, 0.5);
+    outline: none;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(145deg, #0078d4, #005bb5); /* Mavi Gradient */
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.switch-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.switch-link a {
+    color: #0078d4;
+    text-decoration: none;
+    font-weight: bold;
+}
