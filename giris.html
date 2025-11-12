@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostalji Merkezi - Giriş Yap / Kayıt Ol</title>
+    
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <style>
+        /* GENEL STİLLER (index.html'den kopyalanan ve düzeltilen tüm CSS) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #a0e6ff, #5cd1a0); 
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden; 
+        }
+
+        /* ... Diğer CSS Kodlarının Tamamı Buraya Gelecek ... */
+
+        /* GİRİŞ VE KAYIT STİLLERİ */
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        .auth-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .auth-box h2 {
+            color: #0078d4;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(0, 120, 212, 0.3);
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            border-color: #0078d4;
+            box-shadow: 0 0 5px rgba(0, 120, 212, 0.5);
+            outline: none;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(145deg, #0078d4, #005bb5); /* Mavi Gradient */
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .switch-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .switch-link a {
+            color: #0078d4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="site-header">
+            <h1>Nostalji Merkezi</h1>
+            <p>Computer aesthetic of the early 2000s</p>
+        </header>
+
+        <nav class="navbar">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="market.html">Market</a>
+            <a href="sosyal.html">Sosyal Medya Hesaplarımız</a>
+            <a href="https://archive.org/" target="_blank">Zaman Makinesi</a>
+            <a href="uygulama.html">Uygulama Mağazası</a>
+            <a href="https://chat.whatsapp.com/Hz8bSAxZ4uoEOJEoKte3Rf?mode=wwt" target="_blank">WhatsApp Grubumuz</a>
+            <a href="#link_dahasi">Dahası</a>
+        </nav>
+
+        <div class="content-and-sidebar-container">
+            
+            <div class="sidebar">
+            </div>
+
+            <div class="content-area">
+                
+                <div class="auth-container">
+
+                    <div class="auth-box" id="login-box">
+                        <h2>Giriş Yap</h2>
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="login-username">Kullanıcı Adı veya E-posta</label>
+                                <input type="text" id="login-username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Şifre</label>
+                                <input type="password" id="login-password" name="password" required>
+                            </div>
+                            <div class="form-group" style="text-align: center;">
+                                <div class="cloudflare-turnstile" data-sitekey="0x4AAAAAACAZGqbHnYC-hfkI"></div>
+                            </div>
+                            <button type="submit" class="submit-button">Giriş Yap</button>
+                            <div class="switch-link">
+                                Hesabın yok mu? <a href="#" onclick="showRegister()">Hemen Kayıt Ol</a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="auth-box" id="register-box" style="display:none;">
+                        <h2>Kayıt Ol</h2>
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="reg-username">Kullanıcı Adı</label>
+                                <input type="text" id="reg-username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-email">E-posta Adresi</label>
+                                <input type="email" id="reg-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-password">Şifre Oluştur</label>
+                                <input type="password" id="reg-password" name="password" required>
+                            </div>
+                            <div class="form-group" style="text-align: center;">
+                                <div class="cloudflare-turnstile" data-sitekey="0x4AAAAAACAZGqbHnYC-hfkI"></div>
+                            </div>
+                            <button type="submit" class="submit-button">Hesap Oluştur</button>
+                            <div class="switch-link">
+                                Zaten bir hesabın var mı? <a href="#" onclick="showLogin()">Giriş Yap</a>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                
+                <p style="text-align:center; margin-top: 20px; color: #555;">
+                    **NOT:** Bu formlar şu an sadece bir tasarımdır ve bir arka uç (sunucu) sistemi olmadan kullanıcı verilerini kaydetmeyecektir.
+                </p>
+
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <p>Proudly powered by <a href="index.html">Nostalji Merkezi</a> | Theme: Frutiger Aero v7.6 (Giriş/Kayıt Sayfası Eklendi)</p>
+        </footer>
+    </div>
+
+    <script>
+        function showRegister() {
+            document.getElementById('login-box').style.display = 'none';
+            document.getElementById('register-box').style.display = 'block';
+        }
+        function showLogin() {
+            document.getElementById('register-box').style.display = 'none';
+            document.getElementById('login-box').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
