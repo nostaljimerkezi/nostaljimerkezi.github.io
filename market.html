@@ -10,8 +10,8 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             /* GRADYANLI ARKA PLAN: Açık Turkuazdan Açık Yeşile yumuşak geçiş */
-            background: linear-gradient(to bottom right, #a0e6ff, #5cd1a0); 
-            color: #333;
+            [span_1](start_span)background: linear-gradient(to bottom right, #a0e6ff, #5cd1a0);[span_1](end_span)
+            [span_2](start_span)color: #333;[span_2](end_span)
             margin: 0;
             padding: 0;
             display: flex;
@@ -23,7 +23,7 @@
         /* ANA KAPSAYICI (Tüm İçeriği Sarar) */
         .wrapper {
             width: 90%;
-            max-width: 1000px;
+            [span_3](start_span)max-width: 1000px;[span_3](end_span)
             margin-top: 20px;
             margin-bottom: 20px;
         }
@@ -31,56 +31,56 @@
         /* ÜST BAŞLIK ALANI */
         .site-header {
             color: white;
-            padding-bottom: 10px;
+            [span_4](start_span)padding-bottom: 10px;[span_4](end_span)
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        .site-header h1 { margin: 0; font-size: 2.5em; }
-        .site-header p { margin: 5px 0 0 0; font-size: 1.1em; opacity: 0.9; }
+        .site-header h1 { margin: 0; font-size: 2.5em; [span_5](start_span)}
+        .site-header p { margin: 5px 0 0 0; font-size: 1.1em; opacity: 0.9; }[span_5](end_span)
 
         /* NAVİGASYON (MENÜ) */
         .navbar {
             background-color: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(8px);
+            [span_6](start_span)backdrop-filter: blur(8px);[span_6](end_span)
             border-top-left-radius: 10px; 
             border-top-right-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-bottom: none;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            [span_7](start_span)box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);[span_7](end_span)
             display: flex;
             justify-content: flex-start;
             overflow: hidden;
             margin-top: 10px;
             /* Yatay kaydırmayı etkinleştirelim ki, mobil görünümde taşma olmasın */
-            overflow-x: auto; 
-            white-space: nowrap; 
+            [span_8](start_span)overflow-x: auto;[span_8](end_span)
+            [span_9](start_span)white-space: nowrap;[span_9](end_span)
         }
         .navbar a {
             padding: 10px 15px;
-            display: block;
+            [span_10](start_span)display: block;[span_10](end_span)
             color: #333;
             font-weight: bold;
             text-decoration: none;
             transition: background-color 0.3s, color 0.3s;
             border-right: 1px solid rgba(0, 0, 0, 0.1);
         }
-        .navbar a:hover { background-color: rgba(0, 0, 0, 0.1); color: #0078d4; }
-        .navbar a:first-child { background-color: rgba(173, 216, 230, 0.8); }
+        .navbar a:hover { background-color: rgba(0, 0, 0, 0.1); color: #0078d4; [span_11](start_span)}
+        .navbar a:first-child { background-color: rgba(173, 216, 230, 0.8); }[span_11](end_span)
 
         /* İÇERİK VE KENAR ÇUBUĞU KAPSAYICISI */
         .content-and-sidebar-container {
-            display: flex;
-            gap: 0;
+            [span_12](start_span)display: flex;[span_12](end_span)
+            [span_13](start_span)gap: 0;[span_13](end_span)
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            [span_14](start_span)box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);[span_14](end_span)
         }
 
         /* KENAR ÇUBUĞU GİZLİ */
         .sidebar {
-            width: 0;
-            padding: 0;
+            [span_15](start_span)width: 0;[span_15](end_span)
+            [span_16](start_span)padding: 0;[span_16](end_span)
             border: none;
             overflow: hidden;
             display: none; 
@@ -88,90 +88,91 @@
         
         /* İÇERİK ALANI (Makaleler) - TAM GENİŞLİK */
         .content-area {
-            flex: 4; 
-            width: 100%; 
+            [span_17](start_span)flex: 4;[span_17](end_span)
+            [span_18](start_span)width: 100%;[span_18](end_span) 
             background-color: rgba(173, 216, 230, 0.8); 
             backdrop-filter: blur(8px);
             padding: 20px;
             min-height: 400px;
-        }
+        [span_19](start_span)}
 
         /* YAZI STİLLERİ */
         .post {
-            margin-bottom: 30px; 
-            padding: 15px;
+            margin-bottom: 30px;
+            padding: 15px;[span_19](end_span)
             background-color: rgba(255, 255, 255, 0.5); 
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            [span_20](start_span)box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);[span_20](end_span)
         }
         .post h2 {
-            color: #0078d4;
-            margin-top: 0;
+            [span_21](start_span)color: #0078d4;[span_21](end_span)
+            [span_22](start_span)margin-top: 0;[span_22](end_span)
             font-size: 1.8em;
         }
         
         /* FOOTER */
         .site-footer {
-            width: 90%;
-            max-width: 1000px;
+            [span_23](start_span)width: 90%;[span_23](end_span)
+            [span_24](start_span)max-width: 1000px;[span_24](end_span)
             text-align: left;
             color: white;
             font-size: 0.9em;
             padding: 15px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.3);
             margin-top: 20px;
-        }
+        [span_25](start_span)}
 
         /* Duyarlı Tasarım */
         @media (max-width: 768px) {
-            .content-and-sidebar-container { flex-direction: column; }
-            .navbar { flex-wrap: wrap; }
+            .content-and-sidebar-container { flex-direction: column; }[span_25](end_span)
+            .navbar { flex-wrap: wrap; [span_26](start_span)}
             .navbar a { 
                 /* Mobil görünümde menü butonlarını alt alta sıralayalım */
                 border-right: none !important; 
-                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);[span_26](end_span)
                 width: 100%; 
                 box-sizing: border-box;
-            }
-            .wrapper { overflow-x: hidden; }
+            [span_27](start_span)}
+            .wrapper { overflow-x: hidden; }[span_27](end_span)
         }
 
         /* MARKET SAYFASI EK STİLLERİ */
         .market-buttons {
-            display: flex;
-            gap: 20px;
+            [span_28](start_span)display: flex;[span_28](end_span)
+            [span_29](start_span)gap: 20px;[span_29](end_span)
             margin-bottom: 30px;
             flex-wrap: wrap;
             justify-content: center;
         }
         .market-buttons a {
-            padding: 12px 25px;
-            background: linear-gradient(145deg, #0099cc, #0078d4); /* Mavi Gradient */
-            color: white;
-            font-weight: bold;
+            [span_30](start_span)padding: 12px 25px;[span_30](end_span)
+            background: linear-gradient(145deg, #0099cc, #0078d4); [span_31](start_span)/* Mavi Gradient */[span_31](end_span)
+            [span_32](start_span)color: white;[span_32](end_span)
+            [span_33](start_span)font-weight: bold;[span_33](end_span)
             text-decoration: none;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.5); /* Cam/parlak efekt */
-            transition: all 0.3s ease;
-            text-align: center;
+            [span_34](start_span)box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.5);[span_34](end_span)
+            /* Cam/parlak efekt */
+            [span_35](start_span)transition: all 0.3s ease;[span_35](end_span)
+            [span_36](start_span)text-align: center;[span_36](end_span)
         }
         .market-buttons a:hover {
-            background: linear-gradient(145deg, #0078d4, #005bb5);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            [span_37](start_span)background: linear-gradient(145deg, #0078d4, #005bb5);[span_37](end_span)
+            [span_38](start_span)transform: translateY(-2px);[span_38](end_span)
+            [span_39](start_span)box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);[span_39](end_span)
         }
         .highlight-box {
-            background-color: rgba(255, 255, 255, 0.5); 
-            padding: 15px;
+            [span_40](start_span)background-color: rgba(255, 255, 255, 0.5);[span_40](end_span)
+            [span_41](start_span)padding: 15px;[span_41](end_span)
             border-radius: 8px;
             border-left: 5px solid #0078d4; /* Özelliği vurgulayan Mavi çizgi */
             margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            [span_42](start_span)box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);[span_42](end_span)
         }
         .highlight-box h3 {
-            color: #0078d4;
-            margin-top: 0;
+            [span_43](start_span)color: #0078d4;[span_43](end_span)
+            [span_44](start_span)margin-top: 0;[span_44](end_span)
             font-size: 1.4em;
             display: flex;
             align-items: center;
@@ -183,13 +184,13 @@
     <div class="wrapper">
         <header class="site-header">
             <h1>Nostalji Merkezi</h1>
-            <p>Anılarına Bir Ziyaret.</p>
+            <p>Çocukluğunuzu tekrar yaşayın!</p>
         </header>
 
         <nav class="navbar">
             <a href="index.html">Ana Sayfa</a>
-            <a href="market.html">Market</a> 
-            <a href="sosyal.html" target="_blank">Sosyal Medya Hesaplarımız</a>
+            [span_45](start_span)<a href="market.html">Market</a>[span_45](end_span)
+            <a href="https://linktr.ee/nostaljimerkezi" target="_blank">Sosyal Medya Hesaplarımız</a>
             <a href="https://archive.org/" target="_blank">Zaman Makinesi</a>
             <a href="#link_uygulama_magazasi">Uygulama Mağazası</a>
             <a href="https://chat.whatsapp.com/Hz8bSAxZ4uoEOJEoKte3Rf?mode=wwt" target="_blank">WhatsApp Grubumuz</a>
@@ -197,7 +198,7 @@
         </nav>
 
         <div class="content-and-sidebar-container">
-            
+         
             <div class="sidebar">
             </div>
 
@@ -205,46 +206,59 @@
                 
                 <div class="post">
                     <h2>🛒 Nostalji Merkezi Sanal Mağazaları</h2>
-                    <p>En sevdiğin nostaljik ürünlere kolayca ulaşmak için aşağıdaki platformlardan birini seçebilirsin:</p>
+  
+                    [span_46](start_span)<p>En sevdiğin nostaljik ürünlere kolayca ulaşmak için aşağıdaki platformlardan birini seçebilirsin:</p>[span_46](end_span)
                     
                     <div class="market-buttons">
                         <a href="https://www.gardrops.com/nostaljimerkezi" target="_blank">Gardrops</a>
-                        <a href="https://link.dolap.com/dewzss" target="_blank">Dolap</a>
+                        [span_47](start_span)<a href="https://link.dolap.com/dewzss" target="_blank">Dolap</a>[span_47](end_span)
                     </div>
                 </div>
-
+                
+                <div class="post" style="border: 2px solid orange;">
+                    <h2>🔥 Heyecan Verici Gelişmeler: Fiziksel Mağazalarımız Geliyor!</h2>
+                    <p>
+                        Sevgili nostalji tutkunları! Dijital ortamda yarattığımız bu eşsiz atmosferi, yakında fiziki dünyaya da taşıyoruz. Şu anda yoğun bir hazırlık dönemindeyiz ve çok yakında ilk **Nostalji Merkezi Fiziksel Mağazası** kapılarını açacak! 
+                    </p>
+                    <p>
+                        Bu mağazalarımızda, online olarak bulamadığınız, elinize alıp inceleyebileceğiniz o özel koleksiyon parçalarını, retro aksesuarları ve 2000'li yılların ruhunu taşıyan eşyaları bulabileceksiniz. Açılış tarihi ve yeri ile ilgili en güncel duyurular için sosyal medya hesaplarımızı takipte kalmayı unutmayın. Bu heyecan verici adımı seninle paylaşmak çok güzel!
+                    </p>
+                </div>
                 <div class="post">
-                    <h2>Neden Nostalji Merkezi'ni Tercih Etmelisiniz?</h2>
-                    
+                    [span_48](start_span)<h2>Neden Nostalji Merkezi'ni Tercih Etmelisiniz?</h2>[span_48](end_span)
+                   
                     <div class="highlight-box">
                         <h3>🌐 Türkiye ve KKTC Çapında Gönderim</h3>
-                        <p>Türkiyenin neresinde olursanız olun, alışverişlerinize ulaşmanızı sağlayan gönderim kolaylığının keyfini çıkarın.</p>
+                        [span_49](start_span)<p>Türkiyenin neresinde olursanız olun, alışverişlerinize ulaşmanızı sağlayan gönderim kolaylığının keyfini çıkarın.</p>[span_49](end_span)
                     </div>
 
                     <div class="highlight-box">
                         <h3>♻️ Çevre Dostu</h3>
-                        <p>Siparişlerinizin en yakın lokasyondan yapılıp gönderilmesini sağlamak, karbon emisyonlarını en aza indirmek ve sürdürülebilirliği artırmak için talep üzerine tedarik merkezleri ve tedarikçilerden oluşan küresel bir ağ ile ortaklık kuruyoruz.</p>
+                        [span_50](start_span)<p>Siparişlerinizin en yakın lokasyondan yapılıp gönderilmesini sağlamak, karbon emisyonlarını en aza indirmek ve sürdürülebilirliği artırmak için talep üzerine tedarik merkezleri ve tedarikçilerden oluşan küresel bir ağ ile ortaklık kuruyoruz.</p>[span_50](end_span)
                     </div>
 
                     <div class="highlight-box">
                         <h3>⭐ Eşsiz Kalite</h3>
-                        <p>Üstün kalite ve kalıcı güvenilirliği garanti altına almalmakak için titizlikle hazırlanmış ürünlerimizle en yüksek mükemmellik standardını deneyimleyin.</p>
+            
+                        [span_51](start_span)<p>Üstün kalite ve kalıcı güvenilirliği garanti altına almalmakak için titizlikle hazırlanmış ürünlerimizle en yüksek mükemmellik standardını deneyimleyin.</p>[span_51](end_span)
                     </div>
 
                     <div class="highlight-box">
                         <h3>🚚 Hızlı Gönderim (Sadece Türkiye'ye Garanti Veriyoruz)</h3>
-                        <p><strong>Türkiye:</strong> 1 iş günü içerisinde kargolanır, 1-3 iş günü içerisinde adresinize teslim edilir.</p>
-                        <p><strong>KKTC:</strong> 1 iş günü içerisinde kargolanır, Teslimat Süresi Türkiye çıkışından itibaren 1-6 iş günüdür.</p>
+ 
+                        [span_52](start_span)<p><strong>Türkiye:</strong> 1 iş günü içerisinde kargolanır, 1-3 iş günü içerisinde adresinize teslim edilir.</p>[span_52](end_span)
+                        [span_53](start_span)<p><strong>KKTC:</strong> 1 iş günü içerisinde kargolanır, Teslimat Süresi Türkiye çıkışından itibaren 1-6 iş günüdür.</p>[span_53](end_span)
                     </div>
-                    
+        
                     <div class="highlight-box">
                         <h3>💸 Ucuz Fiyatlı</h3>
-                        <p>Ürünlerimiz, kaliteden ödün vermeden bütçe dostu seçenekler sunar. Herkesin erişebileceği uygun fiyatlarla, kaliteli alışveriş deneyimi yaşayın.</p>
+                        [span_54](start_span)<p>Ürünlerimiz, kaliteden ödün vermeden bütçe dostu seçenekler sunar.[span_54](end_span) [span_55](start_span)Herkesin erişebileceği uygun fiyatlarla, kaliteli alışveriş deneyimi yaşayın.</p>[span_55](end_span)
                     </div>
 
                     <div class="highlight-box">
                         <h3>📦 Çok Fazla Teslim Seçeneği</h3>
-                        <p>Dilerseniz elden teslim, kapıda ödeme veya online ödeme imkanlarıyla alışverişinizi tamamlayabilirsiniz.</p>
+                        
+                        [span_56](start_span)<p>Dilerseniz elden teslim, kapıda ödeme veya online ödeme imkanlarıyla alışverişinizi tamamlayabilirsiniz.</p>[span_56](end_span)
                     </div>
 
                 </div>
@@ -252,7 +266,8 @@
         </div>
 
         <footer class="site-footer">
-            <p>Proudly powered by <a href="index.html">Nostalji Merkezi</a> | Theme: Frutiger Aero (Tema tamamen Nostalji Merkezi'ne aittir.)</p>
+            <p>Proudly powered by <a href="index.html">Nostalji Merkezi</a> |
+            [span_57](start_span)Theme: Frutiger Aero v7.1 (Mağaza duyurusu eklendi)</p>[span_57](end_span)
         </footer>
     </div>
 </body>
