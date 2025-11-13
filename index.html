@@ -48,6 +48,9 @@
         .navbar {
             background-color: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(8px);
+            /* Tarayıcı öneklerini ekleyelim ki mobil cihazlarda da çalışsın */
+            -webkit-backdrop-filter: blur(8px);
+            position: relative; /* Blur'ün çalışması için */
             border-top-left-radius: 10px; 
             border-top-right-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -99,6 +102,9 @@
             width: 100%; 
             background-color: rgba(173, 216, 230, 0.8); 
             backdrop-filter: blur(8px);
+            /* Tarayıcı öneklerini ekleyelim ki mobil cihazlarda da çalışsın */
+            -webkit-backdrop-filter: blur(8px);
+            position: relative; /* Blur'ün çalışması için */
             padding: 20px;
             min-height: 400px;
             box-sizing: border-box; /* İç padding genişliğe dahil olsun */
@@ -142,7 +148,7 @@
                 width: 100%; 
                 box-sizing: border-box;
             }
-            .wrapper { overflow-x: hidden; }
+            /* .wrapper { overflow-x: hidden; } 'body'de tanımlandı */
         }
     </style>
 </head>
@@ -195,9 +201,20 @@
         </div>
 
         <footer class="site-footer">
-            <p>Zaman çok hızlı geçiyor... <a href="index.html">Nostalji Merkezi</a> | Theme: Frutiger Aero v7.5 (Mobil Kayma Sorunu Çözüldü)</p>
+            <p>Zaman çok hızlı geçiyor... <a href="index.html">Nostalji Merkezi</a> | Theme: Frutiger Aero v7.6 (Canlı Destek Eklendi)</p>
         </footer>
     </div>
 
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69073391c000f61954757c88/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 </body>
 </html>
