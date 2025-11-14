@@ -2,13 +2,10 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="<html>
-    <kafa>
-        <meta name="tp-claim" content="b313366405c283">
-</html>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nostalji Merkezi - Frutiger Aero</title>
     
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <meta name="tp-claim" content="b313366405c283" /> 
     
     <style>
         /* GENEL STİLLER */
@@ -23,9 +20,7 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            
-            /* KAYMA SORUNUNU ÇÖZEN KOD: Sayfanın yatayda taşmasını engeller */
-            overflow-x: hidden; 
+            overflow-x: hidden; /* Mobil kaymayı engeller */
         }
 
         /* ANA KAPSAYICI (Tüm İçeriği Sarar) */
@@ -34,7 +29,6 @@
             max-width: 1000px;
             margin-top: 20px;
             margin-bottom: 20px;
-            /* Yine de bir güvenlik önlemi: Kapsayıcının kendisi de taşmasın */
             box-sizing: border-box; 
         }
 
@@ -51,9 +45,8 @@
         .navbar {
             background-color: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(8px);
-            /* Tarayıcı öneklerini ekleyelim ki mobil cihazlarda da çalışsın */
-            -webkit-backdrop-filter: blur(8px);
-            position: relative; /* Blur'ün çalışması için */
+            -webkit-backdrop-filter: blur(8px); /* Mobil uyumluluk */
+            position: relative; /* Blur için */
             border-top-left-radius: 10px; 
             border-top-right-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -63,7 +56,6 @@
             justify-content: flex-start;
             overflow: hidden;
             margin-top: 10px;
-            /* Yatay kaydırmayı etkinleştirelim ki, mobil görünümde taşma olmasın */
             overflow-x: auto; 
             white-space: nowrap; 
         }
@@ -105,12 +97,11 @@
             width: 100%; 
             background-color: rgba(173, 216, 230, 0.8); 
             backdrop-filter: blur(8px);
-            /* Tarayıcı öneklerini ekleyelim ki mobil cihazlarda da çalışsın */
-            -webkit-backdrop-filter: blur(8px);
-            position: relative; /* Blur'ün çalışması için */
+            -webkit-backdrop-filter: blur(8px); /* Mobil uyumluluk */
+            position: relative; /* Blur için */
             padding: 20px;
             min-height: 400px;
-            box-sizing: border-box; /* İç padding genişliğe dahil olsun */
+            box-sizing: border-box;
         }
 
         /* YAZI STİLLERİ */
@@ -164,10 +155,10 @@
 
         <nav class="navbar">
             <a href="index.html">Ana Sayfa</a>
-            <a href="market.html">Market</a>
-            <a href="sosyal.html">Sosyal Medya Hesaplarımız</a>
+            <a href="https://sites.google.com/view/nostalji-merkezi-market/ana-sayfa?authuser=3" target="_blank">Market</a>
+            <a href="https://linktr.ee/nostaljimerkezi" target="_blank">Sosyal Medya Hesaplarımız</a>
             <a href="https://archive.org/" target="_blank">Zaman Makinesi</a>
-            <a href="uygulama.html">Uygulama Mağazası</a>
+            <a href="#link_uygulama_magazasi">Uygulama Mağazası</a>
             <a href="https://chat.whatsapp.com/Hz8bSAxZ4uoEOJEoKte3Rf?mode=wwt" target="_blank">WhatsApp Grubumuz</a>
             <a href="#link_dahasi">Dahası</a>
         </nav>
@@ -188,35 +179,18 @@
                 <div class="post">
                     <h2>Biz Kimiz?</h2>
                     <p>
-                        Sitemizde ve TikTok hesabımızda, çocukluğumuzun atıştırmalıklarından ilk internet deneyimlerimize, giyim tarzlarından dönemin hit şarkılarına kadar geniş bir yelpazede içerikler bulacaksınız. Özellikle Frutiger Aero estetiğine ayrı bir parantez açıyoruz; çünkü o dönemin "gelecek" vizyonunu yansıtan o şeffaf arayüzler, parlak renkler ve doğadan ilham alan tasarımlar, nostaljiyi modern bir dokunuşla birleştirmemizin en güzel yollarından biri.
+                        Sitemizde ve TikTok hesabımızda, çocukluğumuzun atıştırmalıklarından ilk internet deneyimlerimize, giyim tarzlarından dönemin hit şarkılarına kadar geniş bir yelpazede içerikler bulacaksınız. Özellikle Frutiger Aero estetiğine ayrı bir parantez açıyoruz; çünkü o dönemin "gelecek" vizyonunu yansıtan o şeffaf arayüzler, parlak renkler ve doğadan ilham alan tasarımlar, nostaljiyi modern bir dokunuşla birleştirmenin en güzel yollarından biri.
                     </p>
                     <p>
                         Nostalji Merkezi olarak, sadece geçmişi hatırlatmakla kalmıyor, aynı zamanda o dönemlerin ruhunu ve enerjisini günümüze taşıyarak bir köprü kurmayı hedefliyoruz. Siz de bu zamanda yolculuğa katılmak ve anılarınızın canlanmasına tanık olmak isterseniz, doğru yerdesiniz!
                     </p>
                 </div>
-                
-                <div style="padding: 15px; text-align: center;">
-                    <div class="cloudflare-turnstile" data-sitekey="0x4AAAAAACAZGqbHnYC-hfkI"></div>
-                </div>
-
             </div>
         </div>
 
         <footer class="site-footer">
-            <p>Zaman çok hızlı geçiyor... <a href="index.html">Nostalji Merkezi</a> | Theme: Frutiger Aero v7.6 (Canlı Destek Eklendi)</p>
+            <p>Proudly powered by <a href="index.html">Nostalji Merkezi</a> | Theme: Frutiger Aero v7.7 (Trustprofile Eklendi)</p>
         </footer>
     </div>
-
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/69073391c000f61954757c88/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
 </body>
 </html>
