@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostalji Merkezi - Sosyal Medya Mobil</title>
+    
+    <style>
+        /* GENEL VE ARKA PLAN STİLLERİ (Frutiger Aero) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Ana sitenle aynı gradient arka plan */
+            background: linear-gradient(to bottom right, #a0e6ff, #5cd1a0); 
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ANA KAPSAYICI (Uygulama Ekranı gibi) */
+        .app-screen {
+            width: 100%;
+            max-width: 450px; /* Telefon ekranı boyutunu simüle eder */
+            min-height: 100vh;
+            background-color: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* BAŞLIK ALANI */
+        .app-header {
+            color: #0078d4;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(0, 120, 212, 0.3); 
+            padding-bottom: 15px;
+            width: 100%;
+        }
+        .app-header h1 { 
+            margin: 0; 
+            font-size: 1.8em;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        .app-header p { 
+            margin: 5px 0 0 0; 
+            font-size: 0.9em; 
+            opacity: 0.8; 
+            color: #333;
+        }
+
+        /* BUTON KAPSAYICISI */
+        .button-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        /* BUTON STİLİ (Sitedeki gibi şeffaf/mavi parlak) */
+        .app-button {
+            display: flex; /* İçindeki yazıyı ortalamak için */
+            align-items: center;
+            justify-content: center;
+            padding: 18px 25px;
+            background: linear-gradient(145deg, #a0e6ff, #0078d4); 
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 15px;
+            text-align: center;
+            /* Cam/parlak efekt */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 12px rgba(255, 255, 255, 0.7);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .app-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-button span {
+            margin-left: 10px;
+            font-size: 1.1em;
+        }
+        
+        /* FOOTER veya Uygulama Versiyon Bilgisi */
+        .app-footer {
+            margin-top: auto; 
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #555;
+            opacity: 0.7;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-screen">
+        
+        <div class="app-header">
+            <h1>📣 Sosyal Medya Hesaplarımız</h1>
+            <p>Bizi tüm platformlardan takip et!</p>
+        </div>
+
+        <div class="button-grid">
+            
+            <a href="https://www.tiktok.com/@nostaljimerkezi?_r=1&_t=ZS-91HBzYR2QdR" target="_blank" class="app-button" style="background: linear-gradient(145deg, #FF0050, #000000);">
+                🎶 TikTok Hesabımız
+            </a>
+            
+            <a href="https://www.instagram.com/nostaljimerkezi.com.tr?igsh=Z3c2dG50OWM5bml0" target="_blank" class="app-button" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">
+                📸 Instagram Hesabımız
+            </a>
+
+            <a href="https://youtube.com/@nostaljimerkezi_tr?si=2m_ze8f5iPO-y6lx" target="_blank" class="app-button" style="background: linear-gradient(145deg, #ff0000, #b20707);">
+                ▶️ YouTube Kanalımız
+            </a>
+            
+            <a href="https://www.tumblr.com/nostaljimerkezi?source=share" target="_blank" class="app-button" style="background: linear-gradient(145deg, #36465d, #001935);">
+                🟣 Tumblr Hesabımız
+            </a>
+
+            <a href="https://x.com/NostaljiMerkezi?t=m2vXQDCDAuwTh-3thrKyjg&s=09" target="_blank" class="app-button" style="background: linear-gradient(145deg, #1DA1F2, #14171A);">
+                🐦 Twitter (X) Hesabımız
+            </a>
+
+            <a href="index.html" class="app-button" style="background: linear-gradient(145deg, #f0f0f0, #cccccc); color: #333; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), inset 0 0 8px rgba(255, 255, 255, 0.5);">
+                Ana Sayfaya Dön
+            </a>
+
+        </div>
+
+        <div class="app-footer">
+            <p>Sürüm 1.0 - Frutiger Aero OS tarafından desteklenmektedir.</p>
+        </div>
+    </div>
+
+</body>
+</html>
