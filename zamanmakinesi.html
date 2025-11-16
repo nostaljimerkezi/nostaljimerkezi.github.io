@@ -6,7 +6,7 @@
     <title>Nostalji Merkezi - Zaman Makinesi</title>
     
     <style>
-        /* GENEL VE ARKA PLAN STİLLERİ (Önceki sayfalardan kopyalanan ana stil) */
+        /* GENEL VE ARKA PLAN STİLLERİ (Index.html ile aynı) */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(to bottom right, #a0e6ff, #5cd1a0); 
@@ -37,7 +37,7 @@
         .site-header h1 { margin: 0; font-size: 2.5em; }
         .site-header p { margin: 5px 0 0 0; font-size: 1.1em; opacity: 0.9; }
 
-        /* NAVİGASYON */
+        /* NAVİGASYON (MENÜ) - index.html'deki ile tamamen aynı stil */
         .navbar {
             background-color: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(8px);
@@ -67,13 +67,13 @@
         /* Bu sayfayı vurgula */
         .navbar a[href="zaman_makinesi.html"] { background-color: rgba(173, 216, 230, 0.8); }
 
-        /* İÇERİK ALANI (Uygulama Ekranı gibi) */
+        /* İÇERİK ALANI (Makaleler) - index.html ile aynı stil */
         .content-area {
             width: 100%; 
             background-color: rgba(173, 216, 230, 0.8); 
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px); 
-            padding: 40px 20px; /* Butonlar için daha fazla boşluk */
+            padding: 20px;
             min-height: 400px;
             box-sizing: border-box;
             border-bottom-left-radius: 10px;
@@ -83,49 +83,53 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            gap: 25px; /* Butonlar arası boşluk */
-            align-items: center;
+            align-items: center; /* İçeriği ortala */
         }
-
-        /* Başlık stili */
-        .content-area h1 {
+        
+        /* BAŞLIK STİLİ */
+        .content-area h2 {
             color: #0078d4;
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-            margin-bottom: 10px;
+            margin-top: 0;
+            font-size: 2.2em;
             border-bottom: 2px solid rgba(0, 120, 212, 0.3);
             padding-bottom: 15px;
-            width: 80%;
+            width: 100%;
             text-align: center;
+            box-sizing: border-box;
         }
 
-        /* ALT BUTON STİLİ */
-        .link-button {
+        /* YENİ BUTON STİLİ (Alt alta, index.html'deki market butonlarına benzer) */
+        .alt-butonlar {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 90%;
-            max-width: 400px;
-            padding: 20px;
-            background: linear-gradient(145deg, #FFC107, #FF9800); /* Canlı Turuncu/Sarı */
+            flex-direction: column; /* Alt alta sırala */
+            gap: 20px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 450px; /* Orta boy bir sütuna sabitle */
+        }
+        .alt-butonlar a {
+            display: block;
+            padding: 20px 25px;
+            background: linear-gradient(145deg, #0099cc, #0078d4); /* Mavi Gradient */
             color: white;
-            font-size: 1.2em;
+            font-size: 1.4em;
             font-weight: bold;
             text-decoration: none;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 12px rgba(255, 255, 255, 0.7);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.7);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
-        .link-button:hover {
+        .alt-butonlar a.atari {
+            background: linear-gradient(145deg, #FFC107, #FF9800); /* Turuncu Gradient */
+        }
+        .alt-butonlar a:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
-        /* İkinci buton için farklı renk */
-        .link-button.atari {
-            background: linear-gradient(145deg, #00c6ff, #0078d4); /* Mavi/Cyan */
-        }
-        
+
         /* FOOTER */
         .site-footer {
             width: 90%;
@@ -135,6 +139,18 @@
             font-size: 0.9em;
             padding: 15px 0;
             margin-top: 20px;
+        }
+        
+        /* Duyarlı Tasarım (Menü alt alta düşer) */
+        @media (max-width: 768px) {
+            .navbar { flex-wrap: wrap; }
+            .navbar a { 
+                border-right: none !important; 
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                width: 100%; 
+                box-sizing: border-box;
+            }
+            .content-area { border-top-left-radius: 0; border-top-right-radius: 0; }
         }
     </style>
 </head>
@@ -158,16 +174,20 @@
         </nav>
         <div class="content-area">
 
-            <h1>⏳ Zaman Makinesi Seçenekleri</h1>
-            <p style="text-align:center;">Hangi döneme ışınlanmak istersin?</p>
+            <h2>⏳ Zaman Makinesi Seçenekleri</h2>
+            <p style="text-align:center; margin-bottom: 30px;">Hangi döneme ışınlanmak istersin?</p>
             
-            <a href="https://archive.org/" target="_blank" class="link-button">
-                🕰️ Klasik Zaman Makinesi (Archive.org)
-            </a>
+            <div class="alt-butonlar">
+                
+                <a href="https://archive.org/" target="_blank">
+                    🕰️ Klasik Zaman Makinesi (Archive.org)
+                </a>
 
-            <a href="atari_oyunlari.html" class="link-button atari">
-                🕹️ 8-Bit Dünyası (Atari Oyunları)
-            </a>
+                <a href="atari_oyunlari.html" class="atari">
+                    🕹️ 8-Bit Dünyası (Atari Oyunları)
+                </a>
+            
+            </div>
             
         </div>
 
