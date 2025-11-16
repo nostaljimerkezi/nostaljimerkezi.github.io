@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostalji Merkezi - Zaman Makinesi</title>
+    
+    <style>
+        /* GENEL VE ARKA PLAN STİLLERİ (Önceki sayfalardan kopyalanan ana stil) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #a0e6ff, #5cd1a0); 
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box; 
+        }
+        
+        /* ÜST BAŞLIK ALANI */
+        .site-header {
+            color: white;
+            padding-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .site-header h1 { margin: 0; font-size: 2.5em; }
+        .site-header p { margin: 5px 0 0 0; font-size: 1.1em; opacity: 0.9; }
+
+        /* NAVİGASYON */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-top-left-radius: 10px; 
+            border-top-right-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: none;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: flex-start;
+            overflow: hidden;
+            margin-top: 10px;
+            overflow-x: auto; 
+            white-space: nowrap; 
+        }
+        .navbar a {
+            padding: 10px 15px;
+            display: block;
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .navbar a:hover { background-color: rgba(0, 0, 0, 0.1); color: #0078d4; }
+        /* Bu sayfayı vurgula */
+        .navbar a[href="zaman_makinesi.html"] { background-color: rgba(173, 216, 230, 0.8); }
+
+        /* İÇERİK ALANI (Uygulama Ekranı gibi) */
+        .content-area {
+            width: 100%; 
+            background-color: rgba(173, 216, 230, 0.8); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); 
+            padding: 40px 20px; /* Butonlar için daha fazla boşluk */
+            min-height: 400px;
+            box-sizing: border-box;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-top: none;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Butonlar arası boşluk */
+            align-items: center;
+        }
+
+        /* Başlık stili */
+        .content-area h1 {
+            color: #0078d4;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 120, 212, 0.3);
+            padding-bottom: 15px;
+            width: 80%;
+            text-align: center;
+        }
+
+        /* ALT BUTON STİLİ */
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            background: linear-gradient(145deg, #FFC107, #FF9800); /* Canlı Turuncu/Sarı */
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 12px rgba(255, 255, 255, 0.7);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.2s ease;
+        }
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        /* İkinci buton için farklı renk */
+        .link-button.atari {
+            background: linear-gradient(145deg, #00c6ff, #0078d4); /* Mavi/Cyan */
+        }
+        
+        /* FOOTER */
+        .site-footer {
+            width: 90%;
+            max-width: 1000px;
+            text-align: left;
+            color: white;
+            font-size: 0.9em;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <header class="site-header">
+            <h1>Nostalji Merkezi</h1>
+            <p>Eskilere bir yolculuk</p>
+        </header>
+        
+        <nav class="navbar">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="market.html">Market</a>
+            <a href="sosyal.html">Sosyal Medya Hesaplarımız</a>
+            <a href="zamanmakinesi.html">Zaman Makinesi</a>
+            <a href="app_arayuzu.html">Uygulama Mağazası</a>
+            <a href="https://chat.whatsapp.com/Hz8bSAxZ4uoEOJEoKte3Rf?mode=wwt" target="_blank">WhatsApp Grubumuz</a>
+            <a href="#link_dahasi">Dahası</a>
+        </nav>
+        <div class="content-area">
+
+            <h1>⏳ Zaman Makinesi Seçenekleri</h1>
+            <p style="text-align:center;">Hangi döneme ışınlanmak istersin?</p>
+            
+            <a href="https://archive.org/" target="_blank" class="link-button">
+                🕰️ Klasik Zaman Makinesi (Archive.org)
+            </a>
+
+            <a href="atari_oyunlari.html" class="link-button atari">
+                🕹️ 8-Bit Dünyası (Atari Oyunları)
+            </a>
+            
+        </div>
+
+        <footer class="site-footer">
+            <p>Proudly powered by Nostalji Merkezi | Theme: Frutiger Aero</p>
+        </footer>
+    </div>
+</body>
+</html>
