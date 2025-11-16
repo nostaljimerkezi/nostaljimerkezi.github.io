@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostalji Merkezi - Atari Oyunları</title>
+    
+    <style>
+        /* GENEL VE ARKA PLAN STİLLERİ (Frutiger Aero) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #a0e6ff, #5cd1a0); 
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ANA KAPSAYICI (Tüm İçeriği Sarar) */
+        .wrapper {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box; 
+        }
+
+        /* BAŞLIK ALANI */
+        .app-header {
+            color: #0078d4;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 120, 212, 0.3); 
+            padding-bottom: 15px;
+            width: 100%;
+        }
+        .app-header h1 { 
+            margin: 0; 
+            font-size: 1.8em;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        .app-header p { 
+            margin: 5px 0 0 0; 
+            font-size: 0.9em; 
+            opacity: 0.8; 
+            color: #333;
+        }
+
+        /* OYUN ALANINI ÇEVRELEYEN KAPSAYICI */
+        .content-area {
+            width: 100%; 
+            background-color: rgba(173, 216, 230, 0.8); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); 
+            padding: 20px;
+            min-height: 400px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* FOOTER */
+        .site-footer {
+            width: 90%;
+            max-width: 1000px;
+            text-align: left;
+            color: white;
+            font-size: 0.9em;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 20px;
+        }
+        
+        /* Oyun Divi için Mobil Uyumlu Stil Ayarları */
+        #myoyunlar {
+            /* Nesne (oyunlar) genişliğini esnek tut */
+            width: 100%;
+            overflow-x: auto; /* Yatay kaydırmaya izin ver */
+            margin-top: 15px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+        }
+
+        /* Uyarı Notu Stili */
+        .warning-note {
+            background-color: #ffda66;
+            color: #a05200;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #ffaa00;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="site-header">
+            <h1>Nostalji Merkezi</h1>
+            <p>Eskilere bir yolculuk</p>
+        </header>
+
+        <div class="content-area">
+
+            <div class="app-header">
+                <h1>🕹️ Atari Oyunları Köşesi</h1>
+                <p>Efsanevi oyunlara hemen başla!</p>
+            </div>
+            
+            <div class="warning-note">
+                Oyunlar 5 sütun olarak ayarlandı, mobilde yatay kaydırma gerekebilir.
+            </div>
+
+            <script type="text/javascript">
+                var siteadres = "https://www.neskici.com"; 
+                var kacsutun = "5"; 
+                var kactane = "50"; 
+                var kategori = "0"; 
+                var yazirengi = "000000"; 
+                var tabanrengi = "FFFFFF"; 
+                var yaziboyutu = "11";
+            </script>
+            <div id="myoyunlar"></div>
+            <script src="https://www.neskici.com/uye/addtoyoursite.js" charset="UTF-8" type="text/javascript"></script>
+            </div>
+
+        <footer class="site-footer">
+            <p>Powered by Neskici.com | Nostalji Merkezi | Theme: Frutiger Aero</p>
+        </footer>
+    </div>
+</body>
+</html>
