@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostalji Merkezi - MON Pet (Tamagotchi)</title>
+    
+    <style>
+        /* GENEL VE ARKA PLAN STİLLERİ */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #a0e6ff, #5cd1a0); 
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box; 
+        }
+        
+        /* ÜST BAŞLIK ALANI */
+        .site-header {
+            color: white;
+            padding-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .site-header h1 { margin: 0; font-size: 2.5em; }
+        .site-header p { margin: 5px 0 0 0; font-size: 1.1em; opacity: 0.9; }
+
+        /* NAVİGASYON (MENÜ) - Diğer sayfalarla aynı */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-top-left-radius: 10px; 
+            border-top-right-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: none;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: flex-start;
+            overflow: hidden;
+            margin-top: 10px;
+            overflow-x: auto; 
+            white-space: nowrap; 
+        }
+        .navbar a {
+            padding: 10px 15px;
+            display: block;
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .navbar a:hover { background-color: rgba(0, 0, 0, 0.1); color: #0078d4; }
+        .navbar a[href="mon_pet.html"] { background-color: rgba(173, 216, 230, 0.8); }
+
+        /* İÇERİK ALANI */
+        .content-area {
+            width: 100%; 
+            background-color: rgba(173, 216, 230, 0.8); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); 
+            padding: 20px;
+            min-height: 500px;
+            box-sizing: border-box;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-top: none;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* BAŞLIK STİLİ */
+        .content-area h2 {
+            color: #d40078;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            margin-top: 0;
+            font-size: 2.2em;
+            border-bottom: 2px solid rgba(212, 0, 120, 0.3);
+            padding-bottom: 15px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        /* MON PET EKRANI */
+        #mon-screen {
+            width: 100%;
+            max-width: 350px;
+            height: 450px;
+            background: linear-gradient(135deg, #e0e0e0, #ffffff); /* Hafif parlak arka plan */
+            border: 10px solid #d40078; /* Canlı pembe çerçeve */
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        #stats-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #mon-display {
+            width: 100%;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.5em;
+        }
+
+        #mon-image {
+            font-size: 5em;
+            margin: 10px 0;
+            transition: transform 0.2s;
+        }
+        
+        #action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .mon-button {
+            padding: 8px 15px;
+            background-color: #0078d4; /* Mavi Butonlar */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .mon-button:hover {
+            background-color: #005bb5;
+            transform: translateY(-1px);
+        }
+        .mon-button.danger {
+            background-color: #ff3333; /* Kırmızı Sıfırla Butonu */
+        }
+        .mon-button.danger:hover {
+            background-color: #cc0000;
+        }
+
+        /* Başlangıç/İsimlendirme Ekranı */
+        #start-screen {
+            text-align: center;
+            padding: 20px;
+        }
+        #start-screen input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+        }
+
+        /* FOOTER */
+        .site-footer {
+            width: 90%;
+            max-width: 1000px;
+            text-align: left;
+            color: white;
+            font-size: 0.9em;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 480px) {
+            #mon-screen { width: 95%; max-width: none; }
+            .mon-button { font-size: 0.8em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <header class="site-header">
+            <h1>Nostalji Merkezi</h1>
+            <p>Eskilere bir yolculuk</p>
+        </header>
+        
+        <nav class="navbar">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="market_arayuzu.html">Market</a>
+            <a href="sosyal_arayuzu.html">Sosyal Medya Hesaplarımız</a>
+            <a href="zaman_makinesi.html">Zaman Makinesi</a>
+            <a href="app_arayuzu.html">Uygulama Mağazası</a>
+            <a href="https://chat.whatsapp.com/Hz8bSAxZ4uoEOJEoKte3Rf?mode=wwt" target="_blank">WhatsApp Grubumuz</a>
+            <a href="mon_pet.html">MON Pet</a>
+            <a href="#link_dahasi">Dahası</a>
+        </nav>
+        <div class="content-area">
+
+            <h2>🥚 MON Pet (Sanal Evcil Hayvan)</h2>
+            <p style="text-align:center;">Canavarını isimlendir, besle, eğit ve bakımını yap! Tamagotchi günleri geri geldi.</p>
+            
+            <div id="mon-screen">
+                
+                <div id="start-screen" style="display: none;">
+                    <h3>Yeni MON Pet'ine Hoş Geldin!</h3>
+                    <p>Lütfen ona bir isim ver:</p>
+                    <input type="text" id="mon-name-input" placeholder="MON'unun Adı">
+                    <button class="mon-button" onclick="startGame()">Başlat</button>
+                    <button class="mon-button" onclick="loadGame()">Kaydı Yükle</button>
+                </div>
+                
+                <div id="game-interface" style="display: none;">
+                    
+                    <div id="stats-bar">
+                        <span id="stat-name">İsim: MON</span> |
+                        <span id="stat-age">Yaş: 0</span> |
+                        <span id="stat-health">Sağlık: 100</span> |
+                        <span id="stat-happy">Mutluluk: 100</span> |
+                        <span id="stat-food">Tokluk: 100</span>
+                    </div>
+
+                    <div id="mon-display">
+                        <span id="mon-image">👶</span>
+                        <p id="mon-message">Yeni doğdum!</p>
+                        <p id="poop-status" style="color:brown; display:none;">💩</p>
+                    </div>
+
+                    <div id="action-buttons">
+                        <button class="mon-button" onclick="feedMon()">🍽️ Besle</button>
+                        <button class="mon-button" onclick="playMon()">⚽ Oyun Oyna</button>
+                        <button class="mon-button" onclick="trainMon()">🎓 Eğit</button>
+                        <button class="mon-button" onclick="cleanMon()">💧 Temizle</button>
+                        <button class="mon-button" onclick="healMon()">💉 İyileştir</button>
+                        <button class="mon-button" onclick="saveGame()">💾 Kaydet</button>
+                        <button class="mon-button danger" onclick="resetGame()">🗑️ Sıfırla</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="site-footer">
+            <p>Proudly powered by Nostalji Merkezi | Theme: Frutiger Aero</p>
+        </footer>
+    </div>
+
+<script>
+    let mon = {};
+    let gameInterval;
+    
+    // MON'un farklı halleri (Resimlerin yerine emojiler kullanıldı)
+    const MON_IMAGES = {
+        baby: '👶',
+        happy: '😊',
+        hungry: '😟',
+        sick: '🤢',
+        dead: '💀'
+    };
+
+    // Oyunu başlatma veya yükleme
+    window.onload = function() {
+        const savedMon = localStorage.getItem('monPet');
+        if (savedMon) {
+            // Eğer kayıt varsa, direkt yükleme ekranına yönlendir
+            document.getElementById('start-screen').style.display = 'flex';
+        } else {
+            // Kayıt yoksa, isim verme ekranıyla başlat
+            document.getElementById('start-screen').style.display = 'flex';
+        }
+    }
+
+    function startGame() {
+        const nameInput = document.getElementById('mon-name-input').value;
+        const name = nameInput.trim() || 'MON'; // İsim verilmezse "MON" olsun
+
+        mon = {
+            name: name,
+            age: 0,
+            health: 100,
+            happiness: 100,
+            food: 100,
+            poop: 0,
+            isSick: false,
+            isDead: false
+        };
+        initializeGame();
+    }
+    
+    function loadGame() {
+        const savedMon = localStorage.getItem('monPet');
+        if (savedMon) {
+            mon = JSON.parse(savedMon);
+            initializeGame();
+        } else {
+            alert("Kayıtlı oyun bulunamadı! Yeni oyuna başlıyoruz.");
+            startGame();
+        }
+    }
+
+    function initializeGame() {
+        // Ekranları değiştir
+        document.getElementById('start-screen').style.display = 'none';
+        document.getElementById('game-interface').style.display = 'flex';
+        
+        // Zamanlayıcıyı başlat (her 5 saniyede bir düşüş)
+        if (gameInterval) clearInterval(gameInterval);
+        gameInterval = setInterval(updateMonStatus, 5000); 
+        
+        updateDisplay();
+    }
+
+    // MON'un durumunu güncelle
+    function updateMonStatus() {
+        if (mon.isDead) {
+            clearInterval(gameInterval);
+            return;
+        }
+
+        // Durumları düşür
+        mon.happiness = Math.max(0, mon.happiness - 3);
+        mon.food = Math.max(0, mon.food - 5);
+        
+        // Yaş ve sağlık kontrolü
+        if (Math.random() < 0.01) { // Çok nadiren yaş artışı
+            mon.age++;
+        }
+        
+        // Kaka yapma şansı
+        if (Math.random() < 0.15) { 
+            mon.poop++;
+        }
+
+        // Hastalık ve ölüm kontrolü
+        if (mon.food <= 20 || mon.happiness <= 20) {
+            mon.isSick = true;
+            mon.health = Math.max(0, mon.health - 5);
+        } else if (mon.health < 100) {
+             mon.isSick = false; // İyileşme şansı
+        }
+
+        if (mon.health === 0) {
+            mon.isDead = true;
+            document.getElementById('mon-message').textContent = `${mon.name} vefat etti.`;
+        }
+        
+        updateDisplay();
+        saveGame(); // Otomatik kaydetme
+    }
+
+    // Ekranı güncelle
+    function updateDisplay() {
+        document.getElementById('stat-name').textContent = `İsim: ${mon.name}`;
+        document.getElementById('stat-age').textContent = `Yaş: ${mon.age}`;
+        document.getElementById('stat-health').textContent = `Sağlık: ${mon.health}`;
+        document.getElementById('stat-happy').textContent = `Mutluluk: ${mon.happiness}`;
+        document.getElementById('stat-food').textContent = `Tokluk: ${mon.food}`;
+        
+        const monImage = document.getElementById('mon-image');
+        const monMessage = document.getElementById('mon-message');
+        const poopStatus = document.getElementById('poop-status');
+
+        if (mon.isDead) {
+            monImage.textContent = MON_IMAGES.dead;
+            monMessage.textContent = `${mon.name} maalesef vefat etti.`;
+            return;
+        }
+
+        if (mon.poop >= 3) {
+            poopStatus.style.display = 'block';
+            monMessage.textContent = `${mon.name} pislik içinde! Temizle beni.`;
+        } else {
+            poopStatus.style.display = 'none';
+        }
+
+        if (mon.isSick) {
+            monImage.textContent = MON_IMAGES.sick;
+            monMessage.textContent = `${mon.name} hasta ve kötü hissediyor.`;
+        } else if (mon.food <= 30) {
+            monImage.textContent = MON_IMAGES.hungry;
+            monMessage.textContent = `${mon.name} çok aç! Yemek ver.`;
+        } else if (mon.happiness <= 30) {
+            monImage.textContent = MON_IMAGES.hungry; // Mutsuz ve üzgün
+            monMessage.textContent = `${mon.name} sıkıldı. Benimle oyna!`;
+        } else {
+            monImage.textContent = MON_IMAGES.happy;
+            monMessage.textContent = `${mon.name} iyi hissediyor.`;
+        }
+    }
+
+    // Aksiyon Fonksiyonları
+    function feedMon() {
+        if (mon.isDead) return;
+        mon.food = Math.min(100, mon.food + 20);
+        mon.happiness = Math.min(100, mon.happiness + 5);
+        document.getElementById('mon-message').textContent = `${mon.name} doydu! 😋`;
+        updateDisplay();
+    }
+
+    function playMon() {
+        if (mon.isDead) return;
+        mon.happiness = Math.min(100, mon.happiness + 30);
+        mon.food = Math.max(0, mon.food - 10); // Oynarken acıkır
+        document.getElementById('mon-message').textContent = `${mon.name} çok eğlendi! 😄`;
+        updateDisplay();
+    }
+
+    function trainMon() {
+        if (mon.isDead) return;
+        mon.happiness = Math.max(0, mon.happiness - 10); // Eğitimi sevmez
+        mon.food = Math.max(0, mon.food - 5);
+        document.getElementById('mon-message').textContent = `${mon.name} bir şeyler öğrendi (Ama biraz yoruldu). 🎓`;
+        updateDisplay();
+    }
+    
+    function cleanMon() {
+        if (mon.isDead) return;
+        if (mon.poop > 0) {
+            mon.poop = 0;
+            mon.health = Math.min(100, mon.health + 15); // Temizlik sağlık katar
+            document.getElementById('mon-message').textContent = `${mon.name}'un etrafı tertemiz oldu! ✨`;
+        } else {
+             document.getElementById('mon-message').textContent = `${mon.name}'un temizliğe ihtiyacı yok.`;
+        }
+        updateDisplay();
+    }
+    
+    function healMon() {
+        if (mon.isDead) return;
+        if (mon.isSick) {
+            mon.health = 100;
+            mon.isSick = false;
+            document.getElementById('mon-message').textContent = `${mon.name} iyileşti! 🎉`;
+        } else {
+            document.getElementById('mon-message').textContent = `${mon.name} zaten sağlıklı.`;
+        }
+        updateDisplay();
+    }
+
+    function saveGame() {
+        localStorage.setItem('monPet', JSON.stringify(mon));
+        alert(`${mon.name} kaydedildi! Güvenle çıkabilirsin.`);
+    }
+
+    function resetGame() {
+        if (confirm("MON Pet'ini sıfırlamak istediğinden emin misin? Tüm ilerlemen kaybolacak.")) {
+            localStorage.removeItem('monPet');
+            clearInterval(gameInterval);
+            document.getElementById('start-screen').style.display = 'flex';
+            document.getElementById('game-interface').style.display = 'none';
+            document.getElementById('mon-name-input').value = '';
+            alert("MON Pet başarıyla sıfırlandı. Yeni bir yumurta başlatabilirsin!");
+        }
+    }
+</script>
+</body>
+</html>
