@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GÜVENLİK UYARISI</title>
+    <style>
+        /* Tam ekranı kaplayan, siyah arka plan */
+        body {
+            margin: 0;
+            overflow: hidden; /* Kaydırmayı engelle */
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        /* Ana uyarı kutusu */
+        .hack-alert {
+            color: red; /* Kırmızı metin */
+            font-size: 30px; /* Büyük yazı tipi */
+            text-align: center;
+            padding: 20px;
+            border: 5px solid red; /* Kırmızı çerçeve */
+            box-shadow: 0 0 30px red; /* Kırmızı ışık efekti */
+            background-color: rgba(20, 0, 0, 0.9); /* Hafif şeffaf siyah/kırmızı arka plan */
+            animation: 
+                glitch 0.1s infinite alternate, /* Hafif titreme/bozulma efekti */
+                flash 0.5s infinite step-start; /* Yanıp sönme efekti */
+            position: fixed; /* Ekranın hep ortasında kalsın */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Tam merkezleme */
+            z-index: 9999; /* Her şeyin üstünde gözüksün */
+        }
+
+        /* Glitch efekti (telefonu çökertiyor hissi veren titreşim) */
+        @keyframes glitch {
+            0% { transform: translate(-50%, -50%) skew(2deg); }
+            100% { transform: translate(-50%, -50%) skew(-2deg); }
+        }
+
+        /* Yanıp sönme efekti (SPAM hissi) */
+        @keyframes flash {
+            50% { opacity: 0.1; } /* Yarı şeffaf hale gelip geri dönecek */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hack-alert">
+        BU SİTE SKEUOSS TARAFINDAN HACKLENMİŞTİR!!! 😈😈
+    </div>
+
+</body>
+</html>
